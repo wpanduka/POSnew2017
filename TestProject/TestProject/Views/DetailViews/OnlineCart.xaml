@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestProject.Views.DetailViews;assembly=TestProject.Views.DetailViews"
+             x:Class="TestProject.Views.DetailViews.OnlineCart">
+    <StackLayout>
+        <ListView x:Name="cartone" RowHeight="120"  ItemSelected="OnSelectedItem"> 
+            <ListView.ItemTemplate>
+                <DataTemplate>                    
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnMore" CommandParameter="{Binding ID, Mode=TwoWay}"  Text="EDIT" />
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding ID, Mode=TwoWay}" Text="DELETE" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                        <StackLayout Orientation="Vertical" Padding="2" VerticalOptions="Fill" >
+                            <StackLayout Orientation="Horizontal"  BackgroundColor="CadetBlue" >                               
+                                <StackLayout Orientation="Horizontal" BackgroundColor="Blue"  >
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Fill" HorizontalOptions="FillAndExpand" BackgroundColor="CadetBlue">
+                                        <Label Text="{Binding ID, Mode=TwoWay}" FontSize="Medium" HorizontalTextAlignment="Start" FontAttributes="Bold" TextColor="White" IsVisible="False"/>
+                                        <Label Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" HorizontalTextAlignment="Start" FontAttributes="Bold" TextColor="White"/>
+                                        <Label Text="{Binding Comments, Mode=TwoWay}" FontSize="Medium" HorizontalTextAlignment="Start" FontAttributes="Bold" TextColor="White"/>
+                                        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="270" />
+                                                <ColumnDefinition Width="270" />
+                                                <ColumnDefinition Width="270" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="ITEM PRICE" Grid.Row="0" Grid.Column="0"  FontSize="Micro" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="DarkSlateGray"/>
+                                            <Label Text="{Binding Price, Mode=TwoWay}" FontSize="Medium" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                                            <Label Text="ITEM QUANTITY" Grid.Row="0" Grid.Column="1"  FontSize="Micro" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="DarkSlateGray"/>
+                                            <Label Text="{Binding Qty, Mode=TwoWay}" FontSize="Medium" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" FontAttributes="Bold" IsEnabled="False" Opacity="1" TextColor="Black" />
+                                            <Label Text="ITEM TOTAL AMOUNT" Grid.Row="0" Grid.Column="2"  FontSize="Micro" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="DarkSlateGray"/>
+                                            <Label Text="{Binding Total, Mode=TwoWay}" FontSize="Medium" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>                     
+                    </ViewCell>                 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="380"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="BACK TO FOOD MENU" Clicked="MainMenu_btn_Clicked" Grid.Row="0" Grid.Column="0" BackgroundColor="#CF5300" TextColor="White" Margin="10,0,10,0"/>
+            <StackLayout BackgroundColor="White" Padding="5" Grid.Row="0" Grid.Column="1" Margin="10,0,10,0" >
+                <Grid VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" ColumnSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label  Text="SUB TOTAL" FontSize="Default" FontAttributes="Bold" TextColor="Maroon" Grid.Row="0" Grid.Column="0"/>
+                    <Label x:Name="total" FontSize="Small" TextColor="Black" Grid.Row="0" Grid.Column="1" VerticalOptions="End" FontAttributes="Bold"/>
+                    <Label  Text="TAX AMOUNT" FontSize="Default" FontAttributes="Bold" TextColor="Maroon" Grid.Row="1" Grid.Column="0"/>
+                    <Label  Text="15.00" FontSize="Small" TextColor="Black" Grid.Row="1" Grid.Column="1" FontAttributes="Bold"/>
+                    <Label  Text="GRAND TOTAL" FontSize="Default" FontAttributes="Bold" TextColor="Maroon" Grid.Row="2" Grid.Column="0"/>
+                    <Label x:Name="gandtot" FontSize="Small" TextColor="Black" Grid.Row="2" Grid.Column="1" FontAttributes="Bold"/>
+                </Grid>
+            </StackLayout>
+        </Grid>
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="380"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="EMPTY CART" Clicked="Cart_btn_Clicked" Grid.Row="0" Grid.Column="0" FontSize="Default" FontAttributes="Bold" BackgroundColor="#CF5300" TextColor="White" Margin="10,0,10,0"/>
+            <Button Text="MAIN MENU" Clicked="MainbtnClicked" Grid.Row="0" Grid.Column="1" FontSize="Default" FontAttributes="Bold" BackgroundColor="#CF5300" TextColor="White" Margin="10,0,10,0"/>
+            <Button Text="CONFIRM KOT" Clicked="KOT_btn_Clicked" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Default" FontAttributes="Bold" BackgroundColor="#CF5300" TextColor="White" Margin="10,0,10,0"/>
+            <Button Text="TABLE PAGE" Clicked="Table_btn_Clicked" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Default" FontAttributes="Bold" BackgroundColor="#CF5300" TextColor="White" Margin="10,0,10,0"/>
+        </Grid>
+    </StackLayout>        
+</ContentPage>

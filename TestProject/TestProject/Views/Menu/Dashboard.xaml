@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestProject.Views.Menu.Dashboard"
+             xmlns:translator="clr-namespace:TestProject.Helpers">
+   
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Label Text="Wellcome" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Button Text="SCREEN 1" Clicked="SelectedScreen1" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </StackLayout>
+    <RelativeLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout Padding="20,0,20,0" x:Name="layout" HorizontalOptions="Center" VerticalOptions="Center">
+        <Image Source="newlogo.png"
+             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />
+        <StackLayout   BackgroundColor="#f2e6d9" Padding="0,0,0,20" HorizontalOptions="Center" VerticalOptions="Center" Opacity="0.8">
+                <Image Source="wallpaperone.jpg"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />
+                <Button Text="{translator:Translate STARTORDER}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="400" HeightRequest="70" Clicked="test_Clicked" BackgroundColor="Transparent" TextColor="Maroon" BorderColor="Maroon" BorderRadius="50" BorderWidth="1" FontSize="Medium" FontAttributes="Italic"/>
+                <Button Text="Delete table" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="400" HeightRequest="70" Clicked="Cart_btn_Clicked" BackgroundColor="Transparent" TextColor="Maroon" BorderColor="Maroon" BorderRadius="50" BorderWidth="1" FontSize="Medium" FontAttributes="Italic"/>
+                <Button Text="BACK TO LOGIN PAGE" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="400" HeightRequest="70" Clicked="table_Clicked" BackgroundColor="Transparent" TextColor="Maroon" BorderColor="Maroon" BorderRadius="50" BorderWidth="1" FontSize="Medium" FontAttributes="Italic"/>
+                <Button Text="{translator:Translate EXIT}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="400" HeightRequest="70" Clicked="onlinetab_Clicked" BackgroundColor="Transparent" TextColor="Maroon" BorderColor="Maroon" BorderRadius="50" BorderWidth="1" FontSize="Medium" FontAttributes="Italic"/>                
+            </StackLayout>
+    </StackLayout>
+    </RelativeLayout>
+</ContentPage>
+

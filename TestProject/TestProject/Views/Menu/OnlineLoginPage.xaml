@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestProject.Views.Menu.OnlineLoginPage"
+             xmlns:translator="clr-namespace:TestProject.Helpers">
+    <StackLayout x:Name="MasterLayout">
+
+        <StackLayout x:Name="LogoStackone" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Image x:Name="LoginIconone" Source="LoginIcon3.png" Margin="0,90,0,0"/>
+        </StackLayout>
+
+        <Label Text="WELLCOME" TextColor="White" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{translator:Translate MASTERLOGIN}" TextColor="White" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="T-LOUNGE POS SYSTEM" TextColor="White" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+
+
+        <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand" Spacing="50" Padding="150">
+
+            <ActivityIndicator x:Name="ActivitySpinnerone" Color="Red" IsRunning="True" />
+            <Entry x:Name="Entry_Usernameone" Placeholder="{translator:Translate Username}" PlaceholderColor="Gray" TextColor ="White" VerticalOptions="Center"/>
+            <Entry x:Name="Entry_Passwordone" Placeholder="{translator:Translate Password}" PlaceholderColor="Gray" TextColor ="White" IsPassword="True" VerticalOptions="Center"/>
+            <Button x:Name="Btn_Signinone"  Text="{translator:Translate Login}" Clicked="SignInProcedureone" BackgroundColor="#CF5300" TextColor="White" FontAttributes="Bold" HeightRequest="75" FontSize="Medium"/>
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
